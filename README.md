@@ -2,4 +2,4 @@
 ## Implementation Plan
 1. **Collaborative Filtering:** 
 2. **Content Based**
-3-**Hybrid Recommendation**
+3. **Hybrid Recommendation**
