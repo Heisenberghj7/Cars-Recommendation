@@ -54,7 +54,11 @@ class Fiche(scrapy.Spider):
         values=[]
         price=''
         promo=''
+        more_info=""
         lis= response.css("div.col-left > div.cell > ul > li")
+        infos=response.css("p#morefiche::text").extract()
+        for info in infos:
+            more_info+=info
         for li in lis: 
             if li.css("p.value > img::attr(src)").extract_first()== None:
                 values.append(li.css("p.value::text").extract_first())
@@ -66,11 +70,12 @@ class Fiche(scrapy.Spider):
            promo= response.css("div.col-sm-7.col-xs-12.details > p.promo-detail > span::text").extract_first()
         else: 
            price = response.css("div.col-sm-7.col-xs-12.details > p.prix::text").extract_first()
-
+       
         yield { 
             'name':response.css("div.col-sm-7.col-xs-12 > h1::text").extract_first() + response.css("div.col-sm-7.col-xs-12 > h3::text").extract_first(),
             'price':price,
             'promo':promo,
             'params':response.css("div.col-left > div.cell > ul > li > p.param::text ").getall(),
-            'values': values
+            'values': values,
+            'More_Info':more_info
                 }
