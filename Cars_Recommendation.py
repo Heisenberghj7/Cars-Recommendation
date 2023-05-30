@@ -20,7 +20,7 @@ tfv = TfidfVectorizer(min_df=10,  max_features=None,
 tfv_matrix = tfv.fit_transform(New_Cars['features'])
 similarity = cosine_similarity(tfv_matrix)
 
-def get_recommendations(name, cosine_similarities=similarity, data=New_Cars, top_n=15):
+def get_recommendations(name, cosine_similarities=similarity, data=New_Cars, top_n=10):
     # Get the index of the car with the given name
     idx = data[data['name'] == name].index[0]
     
