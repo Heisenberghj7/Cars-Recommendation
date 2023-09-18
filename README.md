@@ -1,7 +1,7 @@
 # `Cars Recommendation` 🚗 🚙
 
 <p align="center">
-    <img src="heisenberg_car.jpg"/>
+    <img src="heisenberg_car.jpg" height=50 width=50/>
 </p>
 
 ## Description
